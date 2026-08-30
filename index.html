@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotiGAN: Game Theory Meets Motivated Intruder Test</title>
+    <style>
+        :root {
+            --primary-color: #2b3a4a;
+            --accent-color: #d9534f;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1.paper-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .affiliations {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .emails {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1d2733;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        h2.section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .abstract-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .data-table {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .data-table th, .data-table td {
+            padding: 10px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            border-top: 2px solid var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            background-color: #f1f3f5;
+        }
+
+        .data-table td:nth-child(2) {
+            text-align: right;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: 2px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="paper-title">MotiGAN: Game Theory Meets the Motivated Intruder Test for Re-identification Risk Generation and Annotation in Pseudonymisation</h1>
+        
+        <div class="authors">
+            Xuan-Son Vu<sup>1</sup>, Tien-Dat Nguyen<sup>2</sup>, Elena Volodina<sup>3</sup>
+        </div>
+        
+        <div class="affiliations">
+            <sup>1</sup>Lund University and DeepTensor AB, Sweden<br>
+            <sup>2</sup>Lund University, Sweden<br>
+            <sup>3</sup>Språkbanken Text, SFS, University of Gothenburg, Sweden
+        </div>
+        
+        <div class="emails">
+            {xuan-son.vu, tien_dat.nguyen}@cs.lth.se, elena.volodina@svenska.gu.se
+        </div>
+
+        <div class="links">
+            <a href="#" class="btn">PDF Paper</a>
+            <a href="#" class="btn">Code (GitHub)</a>
+            <a href="#" class="btn">Dataset</a>
+        </div>
+    </header>
+
+    <div class="card">
+        <h2 class="section-title">Abstract</h2>
+        <div class="abstract-grid">
+            <div>
+                <p>
+                    Re-identification methods serve as a concrete instantiation of the Motivated Intruder Test in privacy-preserving problems, and current state-of-the-art attack techniques are predominantly built upon Large Language Models (LLMs) which are also core components of robust pseudonymized methods. Therefore, it requires the rich training dataset. However, as research demands continue to grow while publicly available data for each domain remains limited and the cost of direct human supervision is high, a central question arises: how can a human-in-the-loop approach be integrated to generate high-quality data and improve the performance of LLMs in pseudonymization.
+                </p>
+                <p>
+                    To address this limitation, we propose MOTIGAN - a gamified framework that transforms the motivated intruder test into a competitive three-population tournament. In this game, human characters and AI characters compete to re-identify individuals from each essay. At every stage, players commit both a guess, creating a rich synthesized dataset. In our experiments, this synthesized data contributes to improving the performance of multiple models across several experiments (up to 86.2% on a well-established benchmark).
+                </p>
+            </div>
+            
+            <figure>
+                <img src="figure1.png" alt="MotiGAN Architecture Diagram">
+                <figcaption>
+                    <strong>Figure 1:</strong> Privacy and Utility are conditions for data sharing. LLMs can pseudonymize but benefit from human coaching, though manual annotation is expensive. Our framework MotiGAN places a human in the actor-critic loop via a gamification arena.
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2 class="section-title">Dataset Statistics</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Synthesized Data &#120123;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Essays</td>
+                    <td>2,490</td>
+                </tr>
+                <tr>
+                    <td>Val</td>
+                    <td>373</td>
+                </tr>
+                <tr>
+                    <td>Tokens</td>
+                    <td>204,974</td>
+                </tr>
+                <tr>
+                    <td>Entity tokens</td>
+                    <td>29,991</td>
+                </tr>
+                <tr>
+                    <td>Avg len</td>
+                    <td>82.3</td>
+                </tr>
+                <tr>
+                    <td>Labels</td>
+                    <td>1,659</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
